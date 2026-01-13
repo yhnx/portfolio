@@ -3,201 +3,211 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Senuja Yehen Asuramuni | Portfolio</title>
+    <title>Senuja Yehen | AI & Research Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       body {
-        font-family: "Inter", sans-serif;
+        font-family: "Space Grotesk", sans-serif;
         scroll-behavior: smooth;
+        background-color: #020617;
       }
-      .gradient-text {
-        background: linear-gradient(90deg, #2563eb, #7c3aed);
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .tech-gradient {
+        background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      .project-card:hover {
-        transform: translateY(-5px);
-        transition: all 0.3s ease;
+      .glow-hover:hover {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        transform: translateY(-3px);
+      }
+
+      /* Animated Grid Background */
+      .bg-grid {
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          rgba(255, 255, 255, 0.05) 1px,
+          transparent 0
+        );
+        background-size: 40px 40px;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .reveal {
+        animation: fadeInUp 0.8s ease forwards;
       }
     </style>
   </head>
-  <body class="bg-slate-50 text-slate-900">
-    <!-- Navigation -->
-    <nav
-      class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200"
-    >
+  <body class="text-slate-300 bg-grid">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass top-0 border-b border-white/5">
       <div
-        class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"
+        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
       >
-        <span class="text-xl font-bold gradient-text">SYA.</span>
-        <div class="hidden md:flex space-x-8 font-medium text-sm">
-          <a href="#about" class="hover:text-blue-600 transition">About</a>
-          <a href="#education" class="hover:text-blue-600 transition"
-            >Education</a
+        <a href="#" class="text-2xl font-bold tracking-tighter text-white"
+          >SY<span class="text-blue-500">.</span></a
+        >
+        <div
+          class="hidden md:flex space-x-10 text-sm font-medium uppercase tracking-widest"
+        >
+          <a href="#about" class="hover:text-blue-400 transition">About</a>
+          <a href="#experience" class="hover:text-blue-400 transition"
+            >Experience</a
           >
-          <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-          <a href="#projects" class="hover:text-blue-600 transition"
+          <a href="#projects" class="hover:text-blue-400 transition"
             >Projects</a
           >
-          <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+          <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
         </div>
-        <!-- DOWNLOAD CV BUTTON -->
         <a
           href="Senuja_Asuramuni_CV.pdf"
           download
-          class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200"
+          class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-600/20"
         >
-          <i class="fas fa-download mr-2"></i> Download CV
+          <i class="fas fa-file-download mr-2"></i> CV
         </a>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
-          Senuja Yehen <span class="gradient-text">Asuramuni</span>
+    <section id="about" class="pt-48 pb-32 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <div
+          class="inline-block px-4 py-1.5 mb-6 glass rounded-full text-xs font-bold tracking-widest text-blue-400 uppercase"
+        >
+          Undergraduate Research Intern @ University of Sydney
+        </div>
+        <h1
+          class="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tighter"
+        >
+          Senuja Yehen <span class="tech-gradient">Asuramuni</span>
         </h1>
-        <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-          Electronic & Telecommunication Engineering Student @ University of
-          Moratuwa. <br />
-          Specializing in
-          <span class="font-semibold text-slate-800"
-            >Computer Vision, Embedded Systems, and AI.</span
-          >
+        <p
+          class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10"
+        >
+          Building the future of
+          <span class="text-white border-b-2 border-purple-500"
+            >Human-Computer Interaction</span
+          >,
+          <span class="text-white border-b-2 border-blue-500"
+            >Machine Vision</span
+          >, and
+          <span class="text-white border-b-2 border-cyan-500"
+            >Artificial Intelligence</span
+          >.
         </p>
-        <div class="flex justify-center space-x-4">
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="text-2xl text-slate-400 hover:text-slate-900 transition"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a
-            href="https://linkedin.com/in/yehen-asuramuni"
-            target="_blank"
-            class="text-2xl text-slate-400 hover:text-blue-600 transition"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a
-            href="mailto:yehenasuramuni@hotmail.com"
-            class="text-2xl text-slate-400 hover:text-red-500 transition"
-            ><i class="fas fa-envelope"></i
-          ></a>
+        <div class="flex flex-wrap justify-center gap-4 text-sm">
+          <span class="px-4 py-2 glass rounded-lg border border-white/10"
+            >Computer Vision</span
+          >
+          <span class="px-4 py-2 glass rounded-lg border border-white/10"
+            >Deep Learning</span
+          >
+          <span class="px-4 py-2 glass rounded-lg border border-white/10"
+            >Embedded Systems</span
+          >
+          <span class="px-4 py-2 glass rounded-lg border border-white/10"
+            >Signal Processing</span
+          >
         </div>
       </div>
     </section>
 
-    <!-- Stats/Highlights -->
-    <section class="py-12 bg-white border-y border-slate-200">
-      <div
-        class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-      >
-        <div>
-          <p class="text-3xl font-bold text-blue-600">3.96</p>
-          <p class="text-sm text-slate-500 uppercase tracking-widest">CGPA</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-blue-600">10+</p>
-          <p class="text-sm text-slate-500 uppercase tracking-widest">
-            Technical Projects
-          </p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-blue-600">Top 1.5%</p>
-          <p class="text-sm text-slate-500 uppercase tracking-widest">
-            A-Level National Rank
-          </p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-blue-600">3rd</p>
-          <p class="text-sm text-slate-500 uppercase tracking-widest">
-            SLIoT 2024 Award
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education & Skills -->
-    <section
-      id="education"
-      class="py-20 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-16"
-    >
-      <div>
-        <h2 class="text-3xl font-bold mb-8 flex items-center">
-          <i class="fas fa-graduation-cap mr-4 text-blue-600"></i> Education
+    <!-- Professional Experience -->
+    <section id="experience" class="py-24 px-6 bg-white/[0.02]">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold text-white mb-16 flex items-center">
+          <span class="w-12 h-[1px] bg-blue-500 mr-4"></span> Professional Path
         </h2>
-        <div class="border-l-2 border-blue-200 pl-6 space-y-8">
-          <div>
-            <h3 class="font-bold text-lg">
-              B.Sc. Eng. (Hons.) in Electronic & Telecom Engineering
-            </h3>
-            <p class="text-blue-600 font-medium italic">
-              University of Moratuwa | 2023 – Present
-            </p>
-            <p class="mt-2 text-slate-600">
-              Dean's List: Semesters 1, 2, 3, 4. Core focus on Signal
-              Processing, Control Systems, and Deep Learning.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-bold text-lg">
-              G.C.E. Advanced Level (Physical Science)
-            </h3>
-            <p class="text-blue-600 font-medium italic">
-              Wesley College, Colombo 09 | 2022
-            </p>
-            <p class="mt-2 text-slate-600">
-              4 A's (Combined Maths, Physics, Chemistry, Gen. English). Z-Score:
-              2.1511.
-            </p>
-          </div>
-        </div>
-      </div>
 
-      <div id="skills">
-        <h2 class="text-3xl font-bold mb-8 flex items-center">
-          <i class="fas fa-tools mr-4 text-blue-600"></i> Technical Skills
-        </h2>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-white p-4 rounded-xl border border-slate-200">
-            <h4 class="font-bold mb-2 text-blue-600 text-sm uppercase">
-              Programming
-            </h4>
-            <p class="text-sm text-slate-700">
-              Python, C/C++, SQL, Dart, JavaScript
+        <div class="space-y-12">
+          <!-- Research Internship -->
+          <div
+            class="glass p-8 rounded-3xl border-l-4 border-l-blue-500 relative overflow-hidden"
+          >
+            <div class="absolute top-0 right-0 p-8 opacity-5">
+              <i class="fas fa-microscope text-7xl text-white"></i>
+            </div>
+            <div class="flex flex-col md:flex-row md:justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-white">
+                  Undergraduate Research Intern
+                </h3>
+                <p
+                  class="text-blue-400 font-semibold uppercase tracking-wider text-sm"
+                >
+                  AID Lab - University of Sydney
+                </p>
+              </div>
+              <p class="text-slate-500 font-mono">Dec 2024 — Present</p>
+            </div>
+            <p class="text-slate-400 leading-relaxed max-w-3xl">
+              Conducting research on advanced Human-Computer Interaction and
+              AI-driven systems within the Australian Institute of Digital Lab.
             </p>
           </div>
-          <div class="bg-white p-4 rounded-xl border border-slate-200">
-            <h4 class="font-bold mb-2 text-blue-600 text-sm uppercase">
-              ML & Frameworks
-            </h4>
-            <p class="text-sm text-slate-700">
-              PyTorch, TensorFlow, Scikit-learn, FastAPI, Flutter
+
+          <!-- Startup -->
+          <div
+            class="glass p-8 rounded-3xl border-l-4 border-l-purple-500 relative"
+          >
+            <div class="flex flex-col md:flex-row md:justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-white">Co-Founder</h3>
+                <p
+                  class="text-purple-400 font-semibold uppercase tracking-wider text-sm"
+                >
+                  Rysera Innovations
+                </p>
+              </div>
+              <p class="text-slate-500 font-mono">Nov 2023 — Jul 2024</p>
+            </div>
+            <p class="text-slate-400 leading-relaxed max-w-3xl">
+              Directed product lifecycle for IoT-based environmental monitoring
+              systems. Successfully scaled the RyCycle project and secured
+              national recognition.
             </p>
           </div>
-          <div class="bg-white p-4 rounded-xl border border-slate-200">
-            <h4 class="font-bold mb-2 text-blue-600 text-sm uppercase">
-              Design Tools
-            </h4>
-            <p class="text-sm text-slate-700">
-              Altium Designer, KiCAD, SolidWorks, LTSpice
-            </p>
-          </div>
-          <div class="bg-white p-4 rounded-xl border border-slate-200">
-            <h4 class="font-bold mb-2 text-blue-600 text-sm uppercase">
-              Hardware
-            </h4>
-            <p class="text-sm text-slate-700">
-              STM32, Raspberry Pi, ESP32, BladeRF
+
+          <!-- Intern -->
+          <div class="glass p-8 rounded-3xl border-l-4 border-l-slate-700">
+            <div class="flex flex-col md:flex-row md:justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-white">
+                  Industrial Engineering Intern
+                </h3>
+                <p
+                  class="text-slate-500 font-semibold uppercase tracking-wider text-sm"
+                >
+                  Original Apparel (PVT) Ltd
+                </p>
+              </div>
+              <p class="text-slate-500 font-mono">Mar 2022 — Jun 2022</p>
+            </div>
+            <p class="text-slate-400 leading-relaxed max-w-3xl">
+              Optimized production line layouts and implemented workflow
+              improvements that boosted departmental productivity by 90%.
             </p>
           </div>
         </div>
@@ -205,262 +215,397 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-slate-100 px-4">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Project 1 -->
-          <div
-            class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200"
-          >
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <span
-                  class="text-xs font-bold bg-blue-100 text-blue-600 px-3 py-1 rounded-full uppercase"
-                  >Embedded Systems</span
-                >
-                <a href="#" class="text-slate-400 hover:text-slate-900"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-              <h3 class="font-bold text-xl mb-2">
-                Wireless ECG Acquisition System
-              </h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Designed a wearable ECG system using nRF MCU and BLE for
-                real-time biopotential monitoring with DRL circuitry.
-              </p>
-              <p class="text-xs font-mono text-slate-500">Altium, nRF, BLE</p>
-            </div>
+    <section id="projects" class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-16"
+        >
+          <div>
+            <h2 class="text-5xl font-bold text-white mb-4">Project Archive</h2>
+            <p class="text-slate-500">
+              From low-level signal processing to high-level deep learning.
+            </p>
           </div>
-
-          <!-- Project 2 -->
           <div
-            class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200"
+            class="mt-6 md:mt-0 text-blue-400 font-mono text-sm tracking-tighter uppercase"
           >
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <span
-                  class="text-xs font-bold bg-purple-100 text-purple-600 px-3 py-1 rounded-full uppercase"
-                  >Computer Vision</span
-                >
-                <a href="#" class="text-slate-400 hover:text-slate-900"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-              <h3 class="font-bold text-xl mb-2">Patch2Pix From Scratch</h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Reimplemented epipolar-guided pixel correspondence module based
-                on CVPR 2021 research for optimized inference.
-              </p>
-              <p class="text-xs font-mono text-slate-500">
-                PyTorch, Deep Learning
-              </p>
-            </div>
+            github.com/yhnx <i class="fab fa-github ml-2"></i>
           </div>
+        </div>
 
-          <!-- Project 3 -->
-          <div
-            class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200"
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 1. Wireless ECG -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
           >
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <span
-                  class="text-xs font-bold bg-green-100 text-green-600 px-3 py-1 rounded-full uppercase"
-                  >Robotics</span
-                >
-                <a href="#" class="text-slate-400 hover:text-slate-900"
-                  ><i class="fab fa-github"></i
-                ></a>
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-blue-500/10 rounded-2xl text-blue-500">
+                <i class="fas fa-heartbeat text-2xl"></i>
               </div>
-              <h3 class="font-bold text-xl mb-2">RoboHope Autonomous Robot</h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Vision system for SLRC competition featuring AprilTag detection,
-                ball classification, and low-latency inference.
-              </p>
-              <p class="text-xs font-mono text-slate-500">
-                OpenCV, Raspberry Pi, Python
-              </p>
+              <i
+                class="fas fa-external-link-alt text-slate-600 group-hover:text-blue-500 transition"
+              ></i>
             </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              Wireless ECG Acquisition
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Designed a wearable ECG with differential analog front end & DRL
+              circuitry using nRF MCU & BLE for real-time monitoring.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>Altium</span> <span>nRF</span> <span>BLE</span>
+            </div>
+          </a>
+
+          <!-- 2. Patch2Pix -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-purple-500/10 rounded-2xl text-purple-500">
+                <i class="fas fa-vector-square text-2xl"></i>
+              </div>
+              <i
+                class="fas fa-external-link-alt text-slate-600 group-hover:text-purple-500 transition"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              Patch2Pix Re-implementation
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Custom PyTorch implementation of epipolar-guided pixel
+              correspondence module (CVPR 2021) with optimized inference time.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>PyTorch</span> <span>CV</span>
+            </div>
+          </a>
+
+          <!-- 3. GlycoIQ -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-red-500/10 rounded-2xl text-red-500">
+                <i class="fas fa-tint text-2xl"></i>
+              </div>
+              <i
+                class="fas fa-external-link-alt text-slate-600 group-hover:text-red-500 transition"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              GlycoIQ Smart Glucometer
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Non-invasive glucose monitoring using 650nm laser, histogram
+              feature extraction, and neural networks.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>R-Pi</span> <span>Flutter</span> <span>NN</span>
+            </div>
+          </a>
+
+          <!-- 4. RoboHope -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-green-500/10 rounded-2xl text-green-500">
+                <i class="fas fa-robot text-2xl"></i>
+              </div>
+              <i
+                class="fas fa-external-link-alt text-slate-600 group-hover:text-green-500 transition"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              RoboHope Autonomous
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Vision system for ball detection & AprilTag 16h5 navigation.
+              Optimized for low-latency Raspberry Pi inference.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>OpenCV</span> <span>ESP32</span> <span>Python</span>
+            </div>
+          </a>
+
+          <!-- 5. Tymato -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-orange-500/10 rounded-2xl text-orange-500">
+                <i class="fas fa-leaf text-2xl"></i>
+              </div>
+              <i
+                class="fas fa-external-link-alt text-slate-600 group-hover:text-orange-500 transition"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              Tymato Plant Detection
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Full-stack ML project using ResNet-50 for disease classification
+              with a FastAPI backend.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>ResNet-50</span> <span>FastAPI</span>
+            </div>
+          </a>
+
+          <!-- 6. PulzMouse -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-yellow-500/10 rounded-2xl text-yellow-500">
+                <i class="fas fa-mouse text-2xl"></i>
+              </div>
+              <i
+                class="fas fa-external-link-alt text-slate-600 group-hover:text-yellow-500 transition"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">PulzMouse Design</h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Low-level C/C++ development for maze navigation using PID control
+              and floodfill algorithms.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>STM32</span> <span>PID</span> <span>C++</span>
+            </div>
+          </a>
+
+          <!-- 7. BladeLink -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-cyan-500/10 rounded-2xl text-cyan-500">
+                <i class="fas fa-satellite-dish text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              BladeLink Secure SDR
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Software-defined radio platform with AES-256 encryption & Forward
+              Error Correction (FEC).
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>BladeRF</span> <span>GNU Radio</span>
+            </div>
+          </a>
+
+          <!-- 8. Mynesweeper AI -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-zinc-500/10 rounded-2xl text-zinc-400">
+                <i class="fas fa-brain text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              Mynesweeper AI Bot
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              AI bot using propositional logic and inference engines to solve
+              complex puzzles autonomously.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>Logic</span> <span>PyGame</span>
+            </div>
+          </a>
+
+          <!-- 9. Linear Power Supply -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-emerald-500/10 rounded-2xl text-emerald-500">
+                <i class="fas fa-bolt text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              Regulated Power Supply
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Hardware design for 2V to 20V adjustable output with short-circuit
+              protection and digital display.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>Altium</span> <span>LTSpice</span>
+            </div>
+          </a>
+
+          <!-- 10. Rysk -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-rose-500/10 rounded-2xl text-rose-500">
+                <i class="fas fa-procedures text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              Liver Cancer Predictor
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Web-based risk prediction system using Logistic Regression and
+              Flask backend.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>Scikit-Learn</span> <span>Flask</span>
+            </div>
+          </a>
+
+          <!-- 11. Hike Buddy -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-indigo-500/10 rounded-2xl text-indigo-500">
+                <i class="fas fa-mountain text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Hike Buddy Torch</h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              Multi-functional torch with TDS water purity sensors and
+              magnetometer-based compass.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
+            >
+              <span>SolidWorks</span> <span>Altium</span>
+            </div>
+          </a>
+
+          <!-- 12. RyCycle -->
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group border border-blue-500/30"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div class="p-3 bg-blue-500/20 rounded-2xl text-blue-400">
+                <i class="fas fa-recycle text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">RyCycle Smart Bin</h3>
+            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
+              IoT bin utilizing TensorFlow-Lite for 92% accurate plastic
+              classification.
+            </p>
+            <div
+              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-blue-400"
+            >
+              <span>TensorFlow</span> <span>ESP32</span> <span>IoT</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Grid -->
+    <section class="py-24 px-6 bg-white/[0.02]">
+      <div class="max-w-5xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-white mb-16 italic text-center underline decoration-blue-500"
+        >
+          Technical Stack
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="glass p-6 rounded-2xl text-center">
+            <i class="fab fa-python text-3xl text-blue-400 mb-4"></i>
+            <p class="text-white font-bold">Python</p>
           </div>
-
-          <!-- Project 4 -->
-          <div
-            class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200"
-          >
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <span
-                  class="text-xs font-bold bg-orange-100 text-orange-600 px-3 py-1 rounded-full uppercase"
-                  >IoT/Startup</span
-                >
-                <a href="#" class="text-slate-400 hover:text-slate-900"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-              <h3 class="font-bold text-xl mb-2">RyCycle Smart Bin</h3>
-              <p class="text-slate-600 text-sm mb-4">
-                IoT-enabled bin using TensorFlow-Lite for 92% accurate plastic
-                classification. Awarded 3rd place at SLIoT 2024.
-              </p>
-              <p class="text-xs font-mono text-slate-500">
-                Flutter, TF-Lite, ESP32
-              </p>
-            </div>
+          <div class="glass p-6 rounded-2xl text-center">
+            <i class="fas fa-code text-3xl text-purple-400 mb-4"></i>
+            <p class="text-white font-bold">C/C++</p>
           </div>
-
-          <!-- Project 5 -->
-          <div
-            class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200"
-          >
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <span
-                  class="text-xs font-bold bg-red-100 text-red-600 px-3 py-1 rounded-full uppercase"
-                  >Control Systems</span
-                >
-                <a href="#" class="text-slate-400 hover:text-slate-900"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-              <h3 class="font-bold text-xl mb-2">PulzMouse Micro-Mouse</h3>
-              <p class="text-slate-600 text-sm mb-4">
-                STM32-based maze-solving robot using PID control, IR sensors,
-                and floodfill algorithm for navigation.
-              </p>
-              <p class="text-xs font-mono text-slate-500">
-                C++, STM32CubeIDE, PID
-              </p>
-            </div>
+          <div class="glass p-6 rounded-2xl text-center">
+            <i class="fas fa-brain text-3xl text-red-400 mb-4"></i>
+            <p class="text-white font-bold">PyTorch</p>
           </div>
-
-          <!-- Project 6 -->
-          <div
-            class="project-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200"
-          >
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <span
-                  class="text-xs font-bold bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full uppercase"
-                  >Communication</span
-                >
-                <a href="#" class="text-slate-400 hover:text-slate-900"
-                  ><i class="fab fa-github"></i
-                ></a>
-              </div>
-              <h3 class="font-bold text-xl mb-2">BladeLink SDR Platform</h3>
-              <p class="text-slate-600 text-sm mb-4">
-                Software-defined radio system with AES-256 encryption and FEC
-                for secure file and video transfer.
-              </p>
-              <p class="text-xs font-mono text-slate-500">
-                BladeRF, GNU Radio, Python
-              </p>
-            </div>
+          <div class="glass p-6 rounded-2xl text-center">
+            <i class="fas fa-microchip text-3xl text-green-400 mb-4"></i>
+            <p class="text-white font-bold">STM32</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Experience & Volunteering -->
-    <section class="py-20 px-4 max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-16">
-        <div>
-          <h2 class="text-3xl font-bold mb-8 italic">
-            Professional Experience
-          </h2>
-          <div class="space-y-8">
-            <div class="relative pl-8 border-l border-slate-200">
-              <div
-                class="absolute w-3 h-3 bg-blue-600 rounded-full -left-[6.5px] top-2"
-              ></div>
-              <h3
-                class="font-bold uppercase text-sm tracking-widest text-blue-600"
-              >
-                Co-Founder
-              </h3>
-              <p class="font-bold">Rysera Innovations</p>
-              <p class="text-sm text-slate-500">Nov 2023 – Jul 2024</p>
-              <p class="mt-2 text-slate-600 text-sm">
-                Led the development of RyCycle, managing full product lifecycle
-                from hardware integration to software solutions.
-              </p>
-            </div>
-            <div class="relative pl-8 border-l border-slate-200">
-              <div
-                class="absolute w-3 h-3 bg-slate-300 rounded-full -left-[6.5px] top-2"
-              ></div>
-              <h3
-                class="font-bold uppercase text-sm tracking-widest text-blue-600"
-              >
-                Industrial Engineering Intern
-              </h3>
-              <p class="font-bold">Original Apparel (PVT) Ltd</p>
-              <p class="text-sm text-slate-500">Mar 2022 – Jun 2022</p>
-              <p class="mt-2 text-slate-600 text-sm">
-                Increased productivity by 90% in the eyelet department through
-                workflow redesign and line layout optimization.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h2 class="text-3xl font-bold mb-8 italic">Volunteering</h2>
-          <ul class="space-y-4 text-slate-700">
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-blue-500 mr-3 text-sm"></i>
-              Manager of Operations | Electronic Club UOM
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-blue-500 mr-3 text-sm"></i>
-              Vice President | Rotaract Club of Panadura
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-blue-500 mr-3 text-sm"></i>
-              Volunteer | Global Unites
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check-circle text-blue-500 mr-3 text-sm"></i>
-              President | Sri Lanka Unites, Kalutara
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-slate-900 text-white py-16 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
-        <p class="text-slate-400 mb-8 font-light italic">
-          363/1, Galle Road, Kuda Waskaduwa, Waskaduwa, Kalutara.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <!-- Footer -->
+    <footer id="contact" class="pt-24 pb-12 px-6 border-t border-white/5">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white mb-10">Get In Touch</h2>
+        <div class="flex flex-wrap justify-center gap-8 mb-16">
           <a
             href="mailto:yehenasuramuni@hotmail.com"
-            class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition"
+            class="text-slate-400 hover:text-white transition flex items-center"
           >
-            <i class="fas fa-envelope text-blue-400 mb-3 text-xl"></i>
-            <p class="text-sm block">yehenasuramuni@hotmail.com</p>
-          </a>
-          <a
-            href="tel:+94714485290"
-            class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition"
-          >
-            <i class="fas fa-phone text-blue-400 mb-3 text-xl"></i>
-            <p class="text-sm block">(+94) 71-448-5290</p>
+            <i class="fas fa-envelope mr-3"></i> yehenasuramuni@hotmail.com
           </a>
           <a
             href="https://linkedin.com/in/yehen-asuramuni"
             target="_blank"
-            class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition"
+            class="text-slate-400 hover:text-white transition flex items-center"
           >
-            <i class="fab fa-linkedin text-blue-400 mb-3 text-xl"></i>
-            <p class="text-sm block">LinkedIn Profile</p>
+            <i class="fab fa-linkedin mr-3"></i> LinkedIn
+          </a>
+          <a
+            href="https://github.com/yhnx"
+            target="_blank"
+            class="text-slate-400 hover:text-white transition flex items-center"
+          >
+            <i class="fab fa-github mr-3"></i> GitHub
           </a>
         </div>
-        <p class="text-slate-500 text-xs">
-          © 2024 Senuja Yehen Asuramuni. Built with Tailwind CSS.
+        <p class="text-slate-600 text-xs tracking-[0.2em] uppercase">
+          Senuja Yehen Asuramuni &bull; Sydney / Kalutara &bull; 2025
         </p>
       </div>
     </footer>

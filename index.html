@@ -3,611 +3,692 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Senuja Yehen | AI & Research Engineer</title>
+    <title>Yehen Asuramuni | Research & Engineering</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg-dark: #000000;
+        --accent-blue: #00c3ff;
+        --accent-purple: #6674f5;
+        --glass: rgba(15, 23, 42, 0.8);
+      }
       body {
         font-family: "Space Grotesk", sans-serif;
+        background-color: var(--bg-dark);
+        color: #f1f5f9;
         scroll-behavior: smooth;
-        background-color: #020617;
+      }
+      .mono {
+        font-family: "Fira Code", monospace;
       }
       .glass {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
+        background: var(--glass);
+        backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.05);
       }
-      .tech-gradient {
-        background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+      .text-gradient {
+        background: linear-gradient(to right, #38bdf8, #818cf8);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      .glow-hover:hover {
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-        transform: translateY(-3px);
+      .project-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
-
-      /* Animated Grid Background */
-      .bg-grid {
-        background-image: radial-gradient(
-          circle at 2px 2px,
-          rgba(255, 255, 255, 0.05) 1px,
-          transparent 0
-        );
-        background-size: 40px 40px;
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: var(--accent-blue);
+        box-shadow: 0 20px 25px -5px rgba(56, 189, 248, 0.1);
       }
-
-      @keyframes fadeInUp {
+      #project-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: rgba(2, 6, 23, 0.95);
+        backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+      #project-modal.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+      @keyframes fadeIn {
         from {
           opacity: 0;
-          transform: translateY(20px);
         }
         to {
           opacity: 1;
-          transform: translateY(0);
         }
       }
-      .reveal {
-        animation: fadeInUp 0.8s ease forwards;
+
+      .nav-blur {
+        background: rgba(2, 6, 23, 0.7);
+        backdrop-filter: blur(10px);
+      }
+      .skill-tag {
+        background: rgba(56, 189, 248, 0.05);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        color: var(--accent-blue);
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-family: "Fira Code", monospace;
       }
     </style>
   </head>
-  <body class="text-slate-300 bg-grid">
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass top-0 border-b border-white/5">
+  <body class="selection:bg-sky-500/30">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-white/5">
       <div
-        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <a href="#" class="text-2xl font-bold tracking-tighter text-white"
-          >SY<span class="text-blue-500">.</span></a
+        <span class="text-2xl font-bold tracking-tighter text-gradient"
+          >YA.</span
         >
         <div
-          class="hidden md:flex space-x-10 text-sm font-medium uppercase tracking-widest"
+          class="hidden md:flex space-x-10 text-sm font-medium uppercase tracking-widest text-slate-400"
         >
-          <a href="#about" class="hover:text-blue-400 transition">About</a>
-          <a href="#experience" class="hover:text-blue-400 transition"
+          <a href="#about" class="hover:text-sky-400 transition">About</a>
+          <a href="#education" class="hover:text-sky-400 transition"
+            >Education</a
+          >
+          <a href="#projects" class="hover:text-sky-400 transition">Projects</a>
+          <a href="#experience" class="hover:text-sky-400 transition"
             >Experience</a
           >
-          <a href="#projects" class="hover:text-blue-400 transition"
-            >Projects</a
-          >
-          <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
         </div>
         <a
-          href="Senuja_Asuramuni_CV.pdf"
-          download
-          class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-blue-600/20"
+          href="#"
+          class="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2 rounded-full text-sm font-bold transition flex items-center"
         >
-          <i class="fas fa-file-download mr-2"></i> CV
+          <i class="fa-solid fa-file-arrow-down mr-2"></i> Download CV
         </a>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="pt-48 pb-32 px-6">
-      <div class="max-w-5xl mx-auto text-center">
+    <header
+      class="min-h-screen flex items-center relative overflow-hidden pt-20"
+    >
+      <div
+        class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none"
+      >
         <div
-          class="inline-block px-4 py-1.5 mb-6 glass rounded-full text-xs font-bold tracking-widest text-blue-400 uppercase"
-        >
-          Undergraduate Research Intern @ University of Sydney
+          class="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500 rounded-full blur-[120px]"
+        ></div>
+        <div
+          class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600 rounded-full blur-[120px]"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl">
+          <p class="mono text-sky-400 mb-4 tracking-widest">
+            RESEARCH INTERN @ USYD
+          </p>
+          <h1 class="text-7xl md:text-9xl font-bold mb-6 tracking-tighter">
+            Yehen <br />
+            <span class="text-gradient">Asuramuni.</span>
+          </h1>
+          <p
+            class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl leading-relaxed"
+          >
+            Engineering interfaces between humans and machines. Specializing in
+            <span class="text-white font-medium"
+              >HCI, Machine Vision, and AI.</span
+            >
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#projects"
+              class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-sky-400 transition"
+              >View My Work</a
+            >
+            <div class="flex items-center space-x-6 px-4">
+              <a
+                href="https://github.com/yhnx"
+                target="_blank"
+                class="text-2xl hover:text-sky-400 transition"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a
+                href="https://linkedin.com/in/yehen-asuramuni"
+                target="_blank"
+                class="text-2xl hover:text-sky-400 transition"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a
+                href="mailto:yehenasuramuni@hotmail.com"
+                class="text-2xl hover:text-sky-400 transition"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </div>
+          </div>
         </div>
-        <h1
-          class="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tighter"
-        >
-          Senuja Yehen <span class="tech-gradient">Asuramuni</span>
-        </h1>
-        <p
-          class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10"
-        >
-          Building the future of
-          <span class="text-white border-b-2 border-purple-500"
-            >Human-Computer Interaction</span
-          >,
-          <span class="text-white border-b-2 border-blue-500"
-            >Machine Vision</span
-          >, and
-          <span class="text-white border-b-2 border-cyan-500"
-            >Artificial Intelligence</span
-          >.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 text-sm">
-          <span class="px-4 py-2 glass rounded-lg border border-white/10"
-            >Computer Vision</span
-          >
-          <span class="px-4 py-2 glass rounded-lg border border-white/10"
-            >Deep Learning</span
-          >
-          <span class="px-4 py-2 glass rounded-lg border border-white/10"
-            >Embedded Systems</span
-          >
-          <span class="px-4 py-2 glass rounded-lg border border-white/10"
-            >Signal Processing</span
-          >
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 border-t border-white/5">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+          <div class="md:col-span-7">
+            <h3 class="text-4xl font-bold mb-8">Current Research</h3>
+            <div class="glass p-8 rounded-2xl border-l-4 border-sky-400">
+              <p class="text-xl text-slate-300 mb-4">
+                Currently serving as an
+                <span class="text-white font-bold"
+                  >Undergraduate Research Intern</span
+                >
+                at the
+                <span class="text-sky-400">AID Lab - University of Sydney</span
+                >.
+              </p>
+              <p class="text-slate-400 leading-relaxed mb-6">
+                Conducting advanced research on Human-Computer Interaction (HCI)
+                and Extended Reality (XR) under the supervision of
+                <strong>Prof. Anusha Withana</strong>.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">Extended Reality</span>
+                <span class="skill-tag">HCI Research</span>
+                <span class="skill-tag">Computer Vision</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-5">
+            <h4
+              class="text-sm mono text-slate-500 uppercase tracking-widest mb-6"
+            >
+              Technical Interests
+            </h4>
+            <ul class="space-y-4">
+              <li class="flex items-center text-slate-300">
+                <span class="w-2 h-2 bg-sky-400 rounded-full mr-4"></span>
+                Machine Vision & Perception
+              </li>
+              <li class="flex items-center text-slate-300">
+                <span class="w-2 h-2 bg-indigo-400 rounded-full mr-4"></span>
+                Deep Learning Architectures
+              </li>
+              <li class="flex items-center text-slate-300">
+                <span class="w-2 h-2 bg-purple-400 rounded-full mr-4"></span>
+                Embedded Intelligence
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Professional Experience -->
-    <section id="experience" class="py-24 px-6 bg-white/[0.02]">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="text-4xl font-bold text-white mb-16 flex items-center">
-          <span class="w-12 h-[1px] bg-blue-500 mr-4"></span> Professional Path
-        </h2>
-
+    <!-- Education Section -->
+    <section id="education" class="py-24 bg-slate-900/20">
+      <div class="container mx-auto px-6">
+        <h3 class="text-4xl font-bold mb-12">Education</h3>
         <div class="space-y-12">
-          <!-- Research Internship -->
           <div
-            class="glass p-8 rounded-3xl border-l-4 border-l-blue-500 relative overflow-hidden"
+            class="flex flex-col md:flex-row md:justify-between border-b border-white/5 pb-8"
           >
-            <div class="absolute top-0 right-0 p-8 opacity-5">
-              <i class="fas fa-microscope text-7xl text-white"></i>
+            <div>
+              <h4 class="text-2xl font-bold text-white">
+                University of Moratuwa, Sri Lanka.
+              </h4>
+              <p class="text-sky-400 font-medium">
+                B.Sc. Eng. (Hons.) in Electronic and Telecommunication
+                Engineering
+              </p>
+              <p class="text-slate-500 mt-2 italic">
+                Dean’s List: Semester 1, 2, 3, 4 , 5 (6 Ongoing)
+              </p>
             </div>
-            <div class="flex flex-col md:flex-row md:justify-between mb-4">
-              <div>
-                <h3 class="text-2xl font-bold text-white">
-                  Undergraduate Research Intern
-                </h3>
-                <p
-                  class="text-blue-400 font-semibold uppercase tracking-wider text-sm"
-                >
-                  AID Lab - University of Sydney
-                </p>
-              </div>
-              <p class="text-slate-500 font-mono">Dec 2024 — Present</p>
+            <div class="mt-4 md:mt-0 md:text-right">
+              <p class="mono text-slate-400">Feb. 2023 — Present</p>
             </div>
-            <p class="text-slate-400 leading-relaxed max-w-3xl">
-              Conducting research on advanced Human-Computer Interaction and
-              AI-driven systems within the Australian Institute of Digital Lab.
-            </p>
           </div>
-
-          <!-- Startup -->
-          <div
-            class="glass p-8 rounded-3xl border-l-4 border-l-purple-500 relative"
-          >
-            <div class="flex flex-col md:flex-row md:justify-between mb-4">
-              <div>
-                <h3 class="text-2xl font-bold text-white">Co-Founder</h3>
-                <p
-                  class="text-purple-400 font-semibold uppercase tracking-wider text-sm"
-                >
-                  Rysera Innovations
-                </p>
-              </div>
-              <p class="text-slate-500 font-mono">Nov 2023 — Jul 2024</p>
+          <div class="flex flex-col md:flex-row md:justify-between pb-8">
+            <div>
+              <h4 class="text-2xl font-bold text-white">
+                Wesley College, Sri Lanka.
+              </h4>
+              <p class="text-sky-400 font-medium">
+                G.C.E. Advanced Level - Physical Science Stream
+              </p>
+              <p class="text-slate-500 mt-2">
+                4 Distinction Passes (A) in Physics, Chemistry, Combined Math, &
+                English
+              </p>
             </div>
-            <p class="text-slate-400 leading-relaxed max-w-3xl">
-              Directed product lifecycle for IoT-based environmental monitoring
-              systems. Successfully scaled the RyCycle project and secured
-              national recognition.
-            </p>
-          </div>
-
-          <!-- Intern -->
-          <div class="glass p-8 rounded-3xl border-l-4 border-l-slate-700">
-            <div class="flex flex-col md:flex-row md:justify-between mb-4">
-              <div>
-                <h3 class="text-2xl font-bold text-white">
-                  Industrial Engineering Intern
-                </h3>
-                <p
-                  class="text-slate-500 font-semibold uppercase tracking-wider text-sm"
-                >
-                  Original Apparel (PVT) Ltd
-                </p>
-              </div>
-              <p class="text-slate-500 font-mono">Mar 2022 — Jun 2022</p>
+            <div class="mt-4 md:mt-0 md:text-right">
+              <p class="mono text-slate-400">Graduated Feb. 2022</p>
             </div>
-            <p class="text-slate-400 leading-relaxed max-w-3xl">
-              Optimized production line layouts and implemented workflow
-              improvements that boosted departmental productivity by 90%.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-24 px-6">
-      <div class="max-w-7xl mx-auto">
+    <section id="projects" class="py-24">
+      <div class="container mx-auto px-6">
         <div
-          class="flex flex-col md:flex-row md:items-end justify-between mb-16"
+          class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
         >
           <div>
-            <h2 class="text-5xl font-bold text-white mb-4">Project Archive</h2>
-            <p class="text-slate-500">
-              From low-level signal processing to high-level deep learning.
+            <h3 class="text-5xl font-bold mb-4">Tech Projects</h3>
+            <p class="text-slate-400 max-w-xl text-lg">
+              A comprehensive collection of research implementations, embedded
+              systems, and AI models.
             </p>
           </div>
-          <div
-            class="mt-6 md:mt-0 text-blue-400 font-mono text-sm tracking-tighter uppercase"
-          >
-            github.com/yhnx <i class="fab fa-github ml-2"></i>
+          <div class="text-right">
+            <span class="mono text-sky-400 text-sm"
+              >Click any project to see detailed implementation &
+              contribution</span
+            >
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- 1. Wireless ECG -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+        <!-- Featured Projects Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <!-- Project: ECG -->
+          <div
+            class="project-card glass p-8 rounded-3xl cursor-pointer"
+            onclick="openModal('ecg')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-blue-500/10 rounded-2xl text-blue-500">
-                <i class="fas fa-heartbeat text-2xl"></i>
-              </div>
-              <i
-                class="fas fa-external-link-alt text-slate-600 group-hover:text-blue-500 transition"
-              ></i>
+            <div class="flex justify-between mb-8">
+              <i class="fa-solid fa-heart-pulse text-4xl text-sky-400"></i>
+              <span class="mono text-[10px] text-slate-500">2025</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              Wireless ECG Acquisition
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Designed a wearable ECG with differential analog front end & DRL
-              circuitry using nRF MCU & BLE for real-time monitoring.
+            <h4 class="text-2xl font-bold mb-3">Wireless ECG</h4>
+            <p class="text-slate-400 text-sm mb-6">
+              Wearable biopotential signal acquisition with custom PCB & BLE.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>Altium</span> <span>nRF</span> <span>BLE</span>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Altium</span>
+              <span class="skill-tag">nRF MCU</span>
             </div>
-          </a>
+          </div>
 
-          <!-- 2. Patch2Pix -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          <!-- Project: Patch2Pix -->
+          <div
+            class="project-card glass p-8 rounded-3xl cursor-pointer"
+            onclick="openModal('patch2pix')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-purple-500/10 rounded-2xl text-purple-500">
-                <i class="fas fa-vector-square text-2xl"></i>
-              </div>
-              <i
-                class="fas fa-external-link-alt text-slate-600 group-hover:text-purple-500 transition"
-              ></i>
+            <div class="flex justify-between mb-8">
+              <i class="fa-solid fa-vector-square text-4xl text-indigo-400"></i>
+              <span class="mono text-[10px] text-slate-500">2025</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              Patch2Pix Re-implementation
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Custom PyTorch implementation of epipolar-guided pixel
-              correspondence module (CVPR 2021) with optimized inference time.
+            <h4 class="text-2xl font-bold mb-3">Patch2Pix from Scratch</h4>
+            <p class="text-slate-400 text-sm mb-6">
+              Reimplementation of epipolar-guided pixel correspondence from
+              scratch.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>PyTorch</span> <span>CV</span>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">CV</span>
             </div>
-          </a>
+          </div>
 
-          <!-- 3. GlycoIQ -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          <!-- Project: GlycoIQ -->
+          <div
+            class="project-card glass p-8 rounded-3xl cursor-pointer"
+            onclick="openModal('glyco')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-red-500/10 rounded-2xl text-red-500">
-                <i class="fas fa-tint text-2xl"></i>
-              </div>
-              <i
-                class="fas fa-external-link-alt text-slate-600 group-hover:text-red-500 transition"
-              ></i>
+            <div class="flex justify-between mb-8">
+              <i class="fa-solid fa-microchip text-4xl text-red-400"></i>
+              <span class="mono text-[10px] text-slate-500">2025</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              GlycoIQ Smart Glucometer
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Non-invasive glucose monitoring using 650nm laser, histogram
-              feature extraction, and neural networks.
+            <h4 class="text-2xl font-bold mb-3">GlycoIQ</h4>
+            <p class="text-slate-400 text-sm mb-6">
+              Non-invasive glucose monitoring using 650nm laser & Neural Nets.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>R-Pi</span> <span>Flutter</span> <span>NN</span>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">RasPi</span>
+              <span class="skill-tag">Flutter</span>
             </div>
-          </a>
+          </div>
+        </div>
 
-          <!-- 4. RoboHope -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+        <!-- Rest of Projects Grid (Smaller Cards) -->
+        <div class="grid md:grid-cols-4 gap-6">
+          <div
+            class="project-card glass p-6 rounded-2xl cursor-pointer"
+            onclick="openModal('robo')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-green-500/10 rounded-2xl text-green-500">
-                <i class="fas fa-robot text-2xl"></i>
-              </div>
-              <i
-                class="fas fa-external-link-alt text-slate-600 group-hover:text-green-500 transition"
-              ></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              RoboHope Autonomous
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Vision system for ball detection & AprilTag 16h5 navigation.
-              Optimized for low-latency Raspberry Pi inference.
+            <h5 class="font-bold text-white mb-2">RoboHope</h5>
+            <p class="text-xs text-slate-500">
+              Vision-guided navigation & AprilTag detection.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>OpenCV</span> <span>ESP32</span> <span>Python</span>
-            </div>
-          </a>
-
-          <!-- 5. Tymato -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          </div>
+          <div
+            class="project-card glass p-6 rounded-2xl cursor-pointer"
+            onclick="openModal('tymato')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-orange-500/10 rounded-2xl text-orange-500">
-                <i class="fas fa-leaf text-2xl"></i>
-              </div>
-              <i
-                class="fas fa-external-link-alt text-slate-600 group-hover:text-orange-500 transition"
-              ></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              Tymato Plant Detection
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Full-stack ML project using ResNet-50 for disease classification
-              with a FastAPI backend.
+            <h5 class="font-bold text-white mb-2">Tymato</h5>
+            <p class="text-xs text-slate-500">
+              End-to-end plant disease detection with ResNet-50.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>ResNet-50</span> <span>FastAPI</span>
-            </div>
-          </a>
-
-          <!-- 6. PulzMouse -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          </div>
+          <div
+            class="project-card glass p-6 rounded-2xl cursor-pointer"
+            onclick="openModal('mouse')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-yellow-500/10 rounded-2xl text-yellow-500">
-                <i class="fas fa-mouse text-2xl"></i>
-              </div>
-              <i
-                class="fas fa-external-link-alt text-slate-600 group-hover:text-yellow-500 transition"
-              ></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">PulzMouse Design</h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Low-level C/C++ development for maze navigation using PID control
-              and floodfill algorithms.
+            <h5 class="font-bold text-white mb-2">PulzMouse</h5>
+            <p class="text-xs text-slate-500">
+              Micromouse with PID & Floodfill algorithms.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>STM32</span> <span>PID</span> <span>C++</span>
-            </div>
-          </a>
-
-          <!-- 7. BladeLink -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          </div>
+          <div
+            class="project-card glass p-6 rounded-2xl cursor-pointer"
+            onclick="openModal('sdr')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-cyan-500/10 rounded-2xl text-cyan-500">
-                <i class="fas fa-satellite-dish text-2xl"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              BladeLink Secure SDR
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Software-defined radio platform with AES-256 encryption & Forward
-              Error Correction (FEC).
+            <h5 class="font-bold text-white mb-2">BladeLink</h5>
+            <p class="text-xs text-slate-500">
+              Secure AES-256 communication platform.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>BladeRF</span> <span>GNU Radio</span>
-            </div>
-          </a>
-
-          <!-- 8. Mynesweeper AI -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          </div>
+          <div
+            class="project-card glass p-6 rounded-2xl cursor-pointer"
+            onclick="openModal('mine')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-zinc-500/10 rounded-2xl text-zinc-400">
-                <i class="fas fa-brain text-2xl"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              Mynesweeper AI Bot
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              AI bot using propositional logic and inference engines to solve
-              complex puzzles autonomously.
+            <h5 class="font-bold text-white mb-2">Mynesweeper AI</h5>
+            <p class="text-xs text-slate-500">
+              Logic-based autonomous puzzle solving.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>Logic</span> <span>PyGame</span>
-            </div>
-          </a>
-
-          <!-- 9. Linear Power Supply -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          </div>
+          <div
+            class="project-card glass p-6 rounded-2xl cursor-pointer"
+            onclick="openModal('power')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-emerald-500/10 rounded-2xl text-emerald-500">
-                <i class="fas fa-bolt text-2xl"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              Regulated Power Supply
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Hardware design for 2V to 20V adjustable output with short-circuit
-              protection and digital display.
-            </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>Altium</span> <span>LTSpice</span>
-            </div>
-          </a>
-
-          <!-- 10. Rysk -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+            <h5 class="font-bold text-white mb-2">Linear Power Supply</h5>
+            <h5 class="text-xs text-slate-500">
+              Regulated 2V-20V adjustable PSU.
+            </h5>
+          </div>
+          <div
+            class="project-card glass p-6 rounded-2xl cursor-pointer"
+            onclick="openModal('hike')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-rose-500/10 rounded-2xl text-rose-500">
-                <i class="fas fa-procedures text-2xl"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              Liver Cancer Predictor
-            </h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Web-based risk prediction system using Logistic Regression and
-              Flask backend.
+            <h5 class="font-bold text-white mb-2">Hike Buddy</h5>
+            <p class="text-xs text-slate-500">
+              Multi-functional hiking torch with TDS sensor.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>Scikit-Learn</span> <span>Flask</span>
-            </div>
-          </a>
-
-          <!-- 11. Hike Buddy -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group"
+          </div>
+          <div
+            class="project-card glass p-6 rounded-2xl cursor-pointer"
+            onclick="openModal('rycycle')"
           >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-indigo-500/10 rounded-2xl text-indigo-500">
-                <i class="fas fa-mountain text-2xl"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Hike Buddy Torch</h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              Multi-functional torch with TDS water purity sensors and
-              magnetometer-based compass.
+            <h5 class="font-bold text-white mb-2">RyCycle</h5>
+            <p class="text-xs text-slate-500">
+              AI-powered waste sorting via TF-Lite.
             </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-slate-500"
-            >
-              <span>SolidWorks</span> <span>Altium</span>
-            </div>
-          </a>
-
-          <!-- 12. RyCycle -->
-          <a
-            href="https://github.com/yhnx"
-            target="_blank"
-            class="glass p-8 rounded-3xl glow-hover transition-all flex flex-col group border border-blue-500/30"
-          >
-            <div class="flex justify-between items-start mb-6">
-              <div class="p-3 bg-blue-500/20 rounded-2xl text-blue-400">
-                <i class="fas fa-recycle text-2xl"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">RyCycle Smart Bin</h3>
-            <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6">
-              IoT bin utilizing TensorFlow-Lite for 92% accurate plastic
-              classification.
-            </p>
-            <div
-              class="flex gap-2 text-[10px] font-mono uppercase tracking-widest text-blue-400"
-            >
-              <span>TensorFlow</span> <span>ESP32</span> <span>IoT</span>
-            </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Grid -->
-    <section class="py-24 px-6 bg-white/[0.02]">
-      <div class="max-w-5xl mx-auto">
-        <h2
-          class="text-4xl font-bold text-white mb-16 italic text-center underline decoration-blue-500"
-        >
-          Technical Stack
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="glass p-6 rounded-2xl text-center">
-            <i class="fab fa-python text-3xl text-blue-400 mb-4"></i>
-            <p class="text-white font-bold">Python</p>
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-24 bg-slate-900/40">
+      <div class="container mx-auto px-6">
+        <h3 class="text-4xl font-bold mb-16">Professional Experience</h3>
+        <div class="max-w-4xl space-y-12">
+          <!-- Sydney -->
+          <div class="relative pl-12 border-l-2 border-sky-500">
+            <div
+              class="absolute -left-2.5 top-0 w-5 h-5 bg-sky-500 rounded-full"
+            ></div>
+            <span class="mono text-sky-400 text-sm">Dec. 2025 — Present</span>
+            <h4 class="text-2xl font-bold text-white mt-2">
+              Undergraduate Research Intern
+            </h4>
+            <p class="text-lg text-slate-300">AID Lab - University of Sydney</p>
+            <p class="text-slate-400 mt-4 leading-relaxed">
+              Leading research efforts in HCI and XR interactions. Exploring
+              novel ways to integrate computer vision into user-facing hardware
+              solutions.
+            </p>
           </div>
-          <div class="glass p-6 rounded-2xl text-center">
-            <i class="fas fa-code text-3xl text-purple-400 mb-4"></i>
-            <p class="text-white font-bold">C/C++</p>
+          <!-- Rysera -->
+          <div class="relative pl-12 border-l-2 border-slate-700">
+            <div
+              class="absolute -left-2.5 top-0 w-5 h-5 bg-slate-700 rounded-full"
+            ></div>
+            <span class="mono text-slate-500 text-sm"
+              >Nov. 2023 — July 2024</span
+            >
+            <h4 class="text-2xl font-bold text-white mt-2">Co-Founder</h4>
+            <p class="text-lg text-slate-300">Rysera Innovations</p>
+            <p class="text-slate-400 mt-4 leading-relaxed">
+              Developed IoT solutions for sustainability. Successfully launched
+              RyCycle and managed the full hardware-to-software product
+              lifecycle.
+            </p>
           </div>
-          <div class="glass p-6 rounded-2xl text-center">
-            <i class="fas fa-brain text-3xl text-red-400 mb-4"></i>
-            <p class="text-white font-bold">PyTorch</p>
-          </div>
-          <div class="glass p-6 rounded-2xl text-center">
-            <i class="fas fa-microchip text-3xl text-green-400 mb-4"></i>
-            <p class="text-white font-bold">STM32</p>
+          <!-- Original Apparel -->
+          <div class="relative pl-12 border-l-2 border-slate-700">
+            <div
+              class="absolute -left-2.5 top-0 w-5 h-5 bg-slate-700 rounded-full"
+            ></div>
+            <span class="mono text-slate-500 text-sm"
+              >Mar. 2022 — June 2022</span
+            >
+            <h4 class="text-2xl font-bold text-white mt-2">
+              Industrial Engineering Intern
+            </h4>
+            <p class="text-lg text-slate-300">Original Apparel (PVT) Ltd</p>
+            <p class="text-slate-400 mt-4 leading-relaxed">
+              Increased production line efficiency by 90% through workflow
+              reorganization and layout redesign.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="pt-24 pb-12 px-6 border-t border-white/5">
-      <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-white mb-10">Get In Touch</h2>
-        <div class="flex flex-wrap justify-center gap-8 mb-16">
+    <footer class="py-24 border-t border-white/5">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="text-5xl font-bold mb-8">Let's Connect.</h3>
+        <p class="text-slate-400 mb-12 text-lg">
+          Currently available for research collaborations in HCI & AI.
+        </p>
+        <div class="flex justify-center space-x-8 mb-16">
           <a
             href="mailto:yehenasuramuni@hotmail.com"
-            class="text-slate-400 hover:text-white transition flex items-center"
-          >
-            <i class="fas fa-envelope mr-3"></i> yehenasuramuni@hotmail.com
-          </a>
+            class="text-4xl hover:text-sky-400 transition"
+            ><i class="fa-solid fa-envelope"></i
+          ></a>
           <a
             href="https://linkedin.com/in/yehen-asuramuni"
-            target="_blank"
-            class="text-slate-400 hover:text-white transition flex items-center"
-          >
-            <i class="fab fa-linkedin mr-3"></i> LinkedIn
-          </a>
+            class="text-4xl hover:text-sky-400 transition"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
           <a
             href="https://github.com/yhnx"
-            target="_blank"
-            class="text-slate-400 hover:text-white transition flex items-center"
-          >
-            <i class="fab fa-github mr-3"></i> GitHub
-          </a>
+            class="text-4xl hover:text-sky-400 transition"
+            ><i class="fa-brands fa-github"></i
+          ></a>
         </div>
-        <p class="text-slate-600 text-xs tracking-[0.2em] uppercase">
-          Senuja Yehen Asuramuni &bull; Sydney / Kalutara &bull; 2025
+        <p class="mono text-slate-600 text-xs uppercase tracking-widest">
+          &copy; 2025 Yehen Asuramuni • Built with HTML/Tailwind
         </p>
       </div>
     </footer>
+
+    <!-- Modal Popup Structure -->
+    <div id="project-modal" onclick="closeModal()">
+      <div
+        class="glass w-full max-w-3xl p-10 rounded-[40px] relative max-h-[90vh] overflow-y-auto"
+        onclick="event.stopPropagation()"
+      >
+        <button
+          class="absolute top-8 right-10 text-3xl text-slate-500 hover:text-white"
+          onclick="closeModal()"
+        >
+          &times;
+        </button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <script>
+      const projectLibrary = {
+        ecg: {
+          title: "Wireless ECG Acquisition System",
+          stack: "BLE, nRF MCU, Altium Designer",
+          desc: "Designed a wireless ECG system for wearable devices, capturing low-amplitude biopotential signals using a differential analog front end and DRL circuitry.",
+          points: [
+            "High-resolution ADC digitization",
+            "Real-time BLE transmission",
+            "Optimized low-noise PCB layout",
+            "Research into component selection & power architecture",
+          ],
+        },
+        patch2pix: {
+          title: "Patch2Pix From Scratch",
+          stack: "PyTorch, Deep Learning, Computer Vision",
+          desc: "Reimplemented the CVPR 2021 core epipolar-guided pixel correspondence module to validate deep learning methodology.",
+          points: [
+            "Core algorithm implementation from scratch",
+            "Modified code for inference time optimization",
+            "Result visualization and comparative accuracy analysis",
+          ],
+        },
+        glyco: {
+          title: "GlycoIQ Smart Glucometer",
+          stack: "Raspberry Pi, BLE, Flutter, Neural Networks",
+          desc: "Non-invasive glucose monitoring prototype using a 650nm red laser and image-based feature extraction.",
+          points: [
+            "Neural network trained on blue-channel histogram features",
+            "IoT-enabled BLE transmission",
+            "Mobile app developed with Flutter for data visualization",
+          ],
+        },
+        robo: {
+          title: "RoboHope Autonomous Robot",
+          stack: "OpenCV, Python, Raspberry Pi, ESP32",
+          desc: "Developed for the SLRC competition, focusing on computer vision and autonomous navigation.",
+          points: [
+            "Ball detection and color classification using OpenCV",
+            "Low-latency inference optimization",
+            "AprilTag 16h5 detection and Pi-ESP32 serial communication",
+          ],
+        },
+        tymato: {
+          title: "Tymato: Plant Disease Detection",
+          stack: "PyTorch, FastAPI, ResNet-50",
+          desc: "End-to-end classification system leveraging Kaggle datasets for agricultural monitoring.",
+          points: [
+            "Adopted pre-trained ResNet-50 through transfer learning",
+            "Built FastAPI deployment backend",
+            "Achieved high classification accuracy across multiple disease categories",
+          ],
+        },
+        mouse: {
+          title: "PulzMouse Design",
+          stack: "STM32, C/C++, STM32Cube IDE",
+          desc: "Micro-mouse optimized for speed and maze navigation.",
+          points: [
+            "Integrated IR sensors and encoder feedback",
+            "PID control system for precise movement",
+            "Implemented Floodfill algorithm & acceleration profiles",
+          ],
+        },
+        sdr: {
+          title: "BladeLink SDR Platform",
+          stack: "BladeRF, GNU Radio, Python",
+          desc: "Secure software-defined radio platform for high-speed file and video transfer.",
+          points: [
+            "AES-256 encryption integration",
+            "Forward Error Correction (FEC) for reliability",
+            "Python-based GUI for real-time monitoring",
+          ],
+        },
+        mine: {
+          title: "Mynesweeper AI",
+          stack: "Python, Propositional Logic, PyGame",
+          desc: "AI bot that systematically solves Minesweeper puzzles through formal reasoning.",
+          points: [
+            "Logical inference engines for board state analysis",
+            "Autonomous and assisted play modes",
+            "Visual real-time decision making interface",
+          ],
+        },
+        power: {
+          title: "Linear Power Supply",
+          stack: "Altium Designer, LTSpice, SolidWorks",
+          desc: "Regulated linear PSU with adjustable output from 2V to 20V.",
+          points: [
+            "Current limiting & short-circuit protection circuits",
+            "User interface with potentiometers and digital display",
+            "Full PCB layout and thermal management",
+          ],
+        },
+        hike: {
+          title: "Hike Buddy Torch",
+          stack: "SolidWorks, Altium Designer",
+          desc: "Multi-functional tool for outdoor navigation and safety.",
+          points: [
+            "TDS sensor for water purity testing",
+            "Magnetometer for compass navigation",
+            "OLED display & long-life rechargeable power system",
+          ],
+        },
+        rycycle: {
+          title: "RyCycle Smart Bin",
+          stack: "TF-Lite, ESP32, Flutter",
+          desc: "AI-powered plastic classification system awarded 3rd place at SLIoT 2024.",
+          points: [
+            "TF-Lite model with 92% classification accuracy",
+            "7 motorized compartments for automatic sorting",
+            "Real-time tracking mobile application",
+          ],
+        },
+      };
+
+      function openModal(key) {
+        const data = projectLibrary[key];
+        const content = document.getElementById("modal-content");
+        content.innerHTML = `
+                <h2 class="text-4xl font-bold text-white mb-2">${
+                  data.title
+                }</h2>
+                <p class="mono text-sky-400 text-sm mb-8">${data.stack}</p>
+                <p class="text-slate-300 text-lg mb-8 leading-relaxed">${
+                  data.desc
+                }</p>
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold uppercase text-xs tracking-widest">Key Deliverables</h4>
+                    <ul class="grid gap-3">
+                        ${data.points
+                          .map(
+                            (p) =>
+                              `<li class="flex items-start text-slate-400 text-sm"><span class="text-sky-500 mr-3 mt-1 text-xs">◆</span> ${p}</li>`
+                          )
+                          .join("")}
+                    </ul>
+                </div>
+                <div class="mt-12 flex gap-4">
+                    <a href="https://github.com/yhnx" target="_blank" class="bg-white text-black px-6 py-2 rounded-lg font-bold text-sm">View Repository</a>
+                </div>
+            `;
+        document.getElementById("project-modal").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        document.getElementById("project-modal").classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+    </script>
   </body>
 </html>
